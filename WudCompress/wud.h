@@ -30,3 +30,9 @@ void wud_close(wud_t* wud);
 unsigned int wud_readData(wud_t* wud, void* buffer, unsigned int length, long long offset);
 bool wud_isWUXCompressed(wud_t* wud);
 long long wud_getWUDSize(wud_t* wud);
+
+#ifndef _WIN32
+#define _fseeki64 fseeko
+#define _ftelli64 ftello
+#define stricmp strcasecmp
+#endif
